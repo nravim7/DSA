@@ -111,6 +111,21 @@ public class linkedLists {
 
     }
 
+    public static void reverseLinkedList() {
+        Node prev = null;
+        Node current = head;
+        Node next = null;
+
+        while (current != null) {
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+        printLinkedList(prev);
+    }
+
+
     public static void main(String[] args) {
         addNodeAtEnd(10);
         addNodeAtEnd(20);
@@ -133,6 +148,9 @@ public class linkedLists {
         System.out.println("Deleting Node at index 3");
         deleteNodeAtGivenIndex(3);
         printLinkedList(head);
+        System.out.println("Reversing");
+        reverseLinkedList();
+
     }
 
     public static void printLinkedList(Node headNode) {
